@@ -49,7 +49,11 @@ public class UpgradeTipTask implements UpgradeTask {
 
     public CharSequence getUpgradeWord(final Activity activity) {
         SpannableStringBuilder text = new SpannableStringBuilder();
-        if (mOldVersion == QDUpgradeManager.VERSION_1_1_0) {
+        if(mOldVersion == QDUpgradeManager.VERSION_1_1_1) {
+            text.append("1. Updated arch library to 0.0.4 to fix issue #235.\n");
+            appendBlockSpace(activity, text);
+            text.append("2. Added API to get line count in QMUIFloatLayout");
+        } else if (mOldVersion == QDUpgradeManager.VERSION_1_1_0) {
             text.append("1. Bug fixes: can not read /system/build.prop begin from android 8.0.\n");
             appendBlockSpace(activity, text);
             text.append("2. Allow custom layout in QMUIPopup.");
